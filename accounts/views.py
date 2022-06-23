@@ -1,16 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . import views
+#from . import views
 # Creating the views here.
 
 
 def Login_view(request):
-    return HttpResponse('Please login from here')
+    return render(request,'accounts/index.html')
 
 
 def Logout_view(request):
-    return HttpResponse('please logout from here')
+    return render(request,'accounts/logout_view.html')
 
 
 def Register_view(request):
-    return HttpResponse('please register from here')
+    return render(request,'accounts/register_view.html')
