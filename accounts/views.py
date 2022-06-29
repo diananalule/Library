@@ -6,6 +6,8 @@ from django.http import HttpResponse
 
 
 def Login_view(request):
+    if request.user.is_authenticated:
+        return render(request,"accounts/already-logged-in.html",{})
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

@@ -1,9 +1,9 @@
-{% block content%}
+{% if not request.user.is_authenticated %}
 <div style="margin: top 30px">
   <form method="POST">
     {% csrf_token%} {% if error%}
     <p style="color: red">{{ error}}</p>
-    {% endif%}
+    {% endif %}
     <div>
       <input type="text" name="username" placeholder="username" />
     </div>
@@ -15,5 +15,6 @@
     <button name="submit">Login</button>
   </form>
 </div>
-
-{% endblock %}
+{% else %}
+<p>you are already logged in would you like to <a href="/logout/">logout</a></p>
+{% endif %}
