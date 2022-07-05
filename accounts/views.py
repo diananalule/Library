@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
+
 #from . import views
 # Creating the views here.
 
 
 def Login_view(request):
-    if request.user.is_authenticated:
-        return render(request,"accounts/already-logged-in.html",{})
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -29,4 +29,9 @@ def Logout_view(request):
 
 
 def Register_view(request):
-    return render(request, 'accounts/register_view.html', {})
+    form = UserCreationForm(request.POST or None)
+    if form.is_valid():
+        user_obj = form.save()
+        return redirect('/login')
+    context = {"form":form}
+    return render(request, 'accounts/register.html',{"form":form})
