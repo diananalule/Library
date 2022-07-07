@@ -1,5 +1,6 @@
 from re import T
 import re
+from sre_constants import CATEGORY
 from django.db import models
 class Book(models.Model):
     STATUS = [
@@ -30,3 +31,14 @@ class Borrower(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Payment(models.Model):
+    CATEGORY = [
+        ("cash", "Cash"),
+        ("bank", "Bank"),
+    ]
+    amount_to_pay = models.FloatField(null=True)
+    category = models.CharField(max_length=200,null=True,choices=CATEGORY)
+    description = models.CharField(max_length=200)
+    payment_date = models.DateTimeField(auto_now_add=True,null=True)
