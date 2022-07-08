@@ -20,7 +20,8 @@ from accounts.views import (
     Logout_view,
     Register_view,
 )
-from myapp.views import home
+from myapp.views import (
+    home, showBook)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,8 @@ urlpatterns = [
     path('accounts/', include("accounts.urls")),
     path('login/', Login_view),
     path('logout/', Logout_view),
-    path('register/',Register_view ),
-    path('', home)
+    path('register/', Register_view),
+    path('', home),
+    path('show-book/<str:pk>/', showBook, name='showbook'),
+
 ]
