@@ -22,11 +22,11 @@ class Book(models.Model):
 
 class Borrower(models.Model):
     name = models.CharField(max_length=200)
-    phone = models.CharField(max_length=200,null=True)
+    phone = models.CharField(max_length=200)
     email= models.CharField(max_length=200,null=True)
     return_date = models.DateTimeField(auto_now_add=True)
     due_date = models.DateField()
-    cover = models.ImageField(upload_to="images",blank =True)
+    
 
     def __str__(self):
         return self.name
