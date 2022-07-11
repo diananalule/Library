@@ -1,36 +1,22 @@
+{%extends "accounts/main.html" %}
+
+{% block content %}
+     <h1>WELCOME TO THE MAIN LIBRARY</h1>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang = "en">
     <head>
         <title>MY BOOKS </title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="">
+      
     </head>
     <body>
-        <nav>
-        <div class="main">
-            <div class="navbar">
-                <div class="icon">
-                    <h2 class ="logo">WELCOME TO MAIN LIBRARY</h2>
-                </div>
-
-                <div class = "menu">
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="/about">ABOUT</a></li>
-                        <li><a href="/service">SERVICE</a></li>
-                        
-                    </ul>
-
-
-                </div>
-                <div class="search">
-                    <input class="srch" type="search" name="" placeholder="Type here">
-                    <a href="#"></a><button class="btn">Search</button></div></a>
-                </div>
-            </div>
-            <div class="content">
-                <h1>ALL TEXT BOOKS ARE AVAILABLE</h1>
-                <p class="par">We borrow books and all other sort of documents<br></b></p>
+      
 
                 <div>
                     {% for book in books %}
@@ -42,11 +28,12 @@
 
                 <button class="cn"><a href="#">LEARN MORE</a></button>
 
-            </div>
-        </div>
+            
+        
 
-        </nav>
+        
             
             
     </body>
 </html>
+{% endblock content %}
