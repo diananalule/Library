@@ -19,8 +19,6 @@ def about_view(request):
 def service_view(request):
     return render(request, "accounts/service.html")
 
-
-def showBook(request, pk):
-    book = Book.objects.get(id=pk)
-    context = {'book': book}
-    return render(request, 'accounts/show_book.html', context)
+def book_create_view(request):
+    context ={}
+    return render(request,"accounts/book.html",context)
