@@ -19,9 +19,9 @@ from accounts.views import (
     Login_view,
     Logout_view,
     Register_view,
-    
+
 )
-from myapp.views import(home, about_view,  service_view)
+from myapp.views import(home, about_view,  service_view, showBook)
 
 
 urlpatterns = [
@@ -30,9 +30,10 @@ urlpatterns = [
     path('accounts/', include("accounts.urls")),
     path('login/', Login_view),
     path('logout/', Logout_view),
-    path('register/',Register_view ),
+    path('register/', Register_view),
     path('', home),
-    path('about/',about_view),
-    path("service/",service_view),
-    
+    path('about/', about_view),
+    path("service/", service_view),
+    path('show-book/<str:pk>/', showBook, name='showbook'),
+
 ]
