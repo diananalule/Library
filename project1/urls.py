@@ -21,7 +21,7 @@ from accounts.views import (
     Register_view,
 
 )
-from myapp.views import(home, about_view,  service_view, showBook)
+from myapp.views import(book_create_view, home, about_view,  service_view, showBook)
 
 
 urlpatterns = [
@@ -35,5 +35,6 @@ urlpatterns = [
     path('about/', about_view),
     path("service/", service_view),
     path('show-book/<str:pk>/', showBook, name='showbook'),
+    path("book/",book_create_view),
 
 ]
