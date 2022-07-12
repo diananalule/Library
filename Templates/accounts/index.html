@@ -20,7 +20,14 @@
 
                 <div>
                     {% for book in books %}
-                    
+                    <div class="card" style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">{{book.title}}</p>
+                          <a href="{% url 'showbook' book.id %}" class="btn btn-primary">borrow</a>
+                        </div>
+                      </div>
                     <a href="{% url 'showbook' book.id %}" style="display: block">{{book.title}}</a>
 
                     {% endfor %}
