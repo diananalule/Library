@@ -1,16 +1,16 @@
 ## NAME
 LIBRARY SYSTEM
 ## DESCRIPTION
-This project is designrd by a django framework, sqlite database and bootstrap.It is a web based application.
+This project is designed by a django framework, sqlite database and bootstrap.It is a web based application.
 ## TABLE OF CONTENT
-Setup
-Technologies used
-Usage
-Project status
-Acknowledgements
-Contributors
-License
-Contact
+* Setup
+* Technologies used
+* Usage
+* Project status
+* Acknowledgements
+* Contributors
+* License
+* Contact
 ## SETUP
 1. Install [virtualenv](https://docs.python.org) on your machine:
 * __For windows__:  
@@ -87,10 +87,10 @@ This project was based on various django tutorials.
 Many thanks to MOSH a tutor of django on youtube.  
  
  ## CONTRIBUTORS
- NAKALANZI VIVIAN
- NALULE DIANA
- KATALEMWA JAVIOUS
- BASIIMA COLLINELIOUS
+ * NAKALANZI VIVIAN
+ * NALULE DIANA
+ * KATALEMWA JAVIOUS
+ * BASIIMA COLLINELIOUS
 
  ## LICENSE
  It is an open source project.
