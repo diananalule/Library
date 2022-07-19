@@ -1,0 +1,53 @@
+{% extends 'main.html' %} {% block content %}
+<h1 class="text-center mt-5">Login!</h1>
+<div class="d-flex justify-content-center mt-5">
+  <div class="card w-50 mt-3">
+    <div class="card-body">
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="invalid" {% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <form
+        action="."
+        method="POST"
+        class="needs-validation"
+        autocomplete="off"
+      >
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            class="form-control"
+            value="{{ email }}"
+            id="email"
+            name="email"
+            required
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            value="{{ password }}"
+            id="pwd"
+            name="password"
+            required
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="mt-2">
+          <a href="/signup" class=""> Have no account Sign up</a>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+          <button type="submit" class="btn btn-primary w-75">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
