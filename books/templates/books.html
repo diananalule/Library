@@ -1,0 +1,83 @@
+{% extends 'main.html' %} {% block content %}
+<div class="d-flex justify-content-center mt-0"> 
+    <nav class="navbar navbar-light bg-light mt-3 w-75" style="position: fixed;">
+        <div class="container-fluid">
+            {% if user.role == "Admin" %}
+            <a class= "navbar-brand btn btn-primary" href="{% url 'addbook' %}"> Add book</a>
+            <div class="d-flex justify-content-center">
+            <form class="d-flex"  method="GET" action="{% url 'searchbooks' %}">
+                <input class="form-control me-2" type="search" placeholder="Search" name="srch" aria-label="Search book">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </div>
+            {% endif %}
+            {% if user.role == "Student" %}
+            <form class="d-flex justify-content-end"  method="GET" action="{% url 'searchbooks' %}">
+                <input class="form-control me-2 w-100" style="display: flex; justify-content: flex-end" type="search" placeholder="Search" name="srch" aria-label="Search book">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            {% endif %}
+        </div>
+      </nav>
+</div>
+<div class="d-flex justify-content-center mt-5" stlye="margin-top: 100px;">
+    {% if books %}
+    <table class="table table-striped w-75 mt-5">
+        {% if user.role == "Admin"%}
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Genre</th>
+            <th scope="col">State</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+          <tr>
+            <th scope="row">{{book.id}}</th>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.genre}}</td>
+            <td>{{book.status}}</td>
+            <td></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        {% else %}
+        <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Genre</th>
+              <th scope="col">State</th>
+              <th scope="col">Borrow</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for book in books %}
+            <tr>
+              <th scope="row">{{book.id}}</th>
+              <td>{{book.title}}</td>
+              <td>{{book.author}}</td>
+              <td>{{book.genre}}</td>
+              <td>{{book.status}}</td>
+              <td>
+                <form class=""  method="GET" action="{% url 'borrowbook' book.id %}">
+                    <button type="submit" class="btn btn-outline-primary">Borrow</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        {% endif %}
+    </table>
+    {% else %}
+    <h1 class="mt-5">No books found</h1>
+    {% endif %}
+
+</div>
+{% endblock %}

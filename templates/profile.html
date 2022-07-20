@@ -1,0 +1,95 @@
+{% extends 'main.html'%} {% block content %}
+<div class="d-flex flex-row justify-content-evenly mt-5"> 
+<div class="card" style="width: 35rem;">
+    <div class="card-header">
+      <h3 class="text-center">User profile</h3>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="mb-1">
+              <label class="form-label">Name</label>
+              <input class="form-control" value="{{user.name}}" readonly>
+            </div>
+            <div class="mb-1">
+              <label class="form-label">Email</label>
+              <input class="form-control" value="{{user.email}}" readonly>
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Role</label>
+                <input class="form-control" value="{{user.role}}" readonly>
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Sex</label>
+                <input class="form-control" value="{{user.sex}}" readonly>
+            </div>
+          </form>
+    </div>
+</div>
+{% if user.role == "Student" %}
+<div class="card" style="width: 35rem;">
+    <div class="card-header">
+      <h3 class="text-center">Borrowed book</h3>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="mb-1">
+              <label class="form-label">Title:</label>
+              <input class="form-control" value="{{book.title}}" readonly>
+            </div>
+            <div class="mb-1">
+              <label class="form-label">Author:</label>
+              <input class="form-control" value="{{book.author}}" readonly>
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Genre</label>
+                <input class="form-control" value="{{book.genre}}" readonly>
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Return date</label>
+                <input class="form-control" value="{{book.return_date}}" readonly>
+            </div>
+            <div class="mb-1 d-flex justify-content-center">
+            <form
+                action="."
+                method="GET"
+                class="needs-validation"
+                autocomplete="off"
+              >
+              <button type="submit" class="btn btn-primary w-75 text-center mt-3">Return book</button>
+              </form>  
+            </div>
+          </form>
+    </div>
+</div>
+{% else %}
+<div class="card" style="width: 35rem;">
+<div class="card-header">
+    <h3 class="text-center">Library stats</h3>
+  </div>
+  <div class="card-body">
+    <div class="d-flex flex-row justify-content-evenly">
+        <div class="card m-2" style="width: 18rem;">
+                <div style="text-align: center;">
+                    <h2 class="text-center p-2 m-2"><i class="bi bi-person-workspace"></i> {{total_students}}</h2>
+                    <h3>Total Students</h3>
+                </div>
+        </div>
+        <div class="card m-2" style="width: 18rem;">
+            <div style="text-align: center;">
+                <h2><i class="bi bi-journals"></i> {{total_books}} </h2>
+                <h3>Total Books</h3>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-evenly mt-2">
+        <div class="card m-2" style="width: 18rem;">
+            <div style="text-align: center;">
+                <h2 class="text-danger"><i class="bi bi-journal-arrow-up"></i>{{borrowed_books}}</h2>
+                <h3 class="text-danger">Borrowed books</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+</div>
+{% endblock %}

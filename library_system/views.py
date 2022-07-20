@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from system_user.models import CustomUser
+from books.models import Book
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -18,7 +19,7 @@ def loginView(request):
         user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect("/books/" + str(user.id))
+            return redirect("/catalog/" + str(user.id))
         else:
             messages.error(request, "Invalid email or password")
             return render(request, "login.html", context)
@@ -74,3 +75,26 @@ def booksView(request, user_id):
     user = CustomUser.objects.get(id=user_id)
     context = {"user": user}
     return render(request, "books.html", context)
+
+@login_required(login_url='/login/')
+def profileView(request):
+    context = {}
+    total_students = CustomUser.objects.filter(role="Student").count()
+    total_books = Book.objects.all().count()
+    borrowed_books = Book.objects.filter(status="Borrowed").count()
+    user = request.user.id
+    new_user = CustomUser.objects.get(id=user)
+    try:
+        book = Book.objects.get(borrower = new_user)
+    except:
+        book = None
+    context={
+        "total_students": total_students,
+        "total_books": total_books,
+        "borrowed_books": borrowed_books,
+        "book": book,
+    }
+    return render(request, "profile.html", context)
+
+def homeView(request):
+    return render(request, "home_page.html")
