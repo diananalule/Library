@@ -15,16 +15,16 @@ This project is designed by a django framework, sqlite database and bootstrap.It
 1. Install [virtualenv](https://docs.python.org) on your machine:
 * __For windows__:  
 ```
-$ python -m pip install virtualenv
+$ Install latest python in VS code which comes with Pip version
 ```
 * __For Linux and Mac OS__:  
 ```
 $ pip install virtualenv 
 ```
-2. Create a directory called LMS and move into that directory:   
+2. Create a directory called Library and move into that directory:   
 ```
-$ mkdir LMS
-$ cd LMS
+$ mkdir library
+$ cd library
 ```
 
 3. Clone this projects public repository from [gitlab](https://gitlab.com):  
@@ -34,27 +34,27 @@ $ git clone http//gitlab.com/fearless5/library.git
 
 4. Change the current working directory into the cloned projects directory:  
 ```
-$ cd g5-library-system
+$ cd g5-library.git
 ```
 
 5. Create a new virtual environment to manage the projects local modules:  
 ```
-$ virtualenv lms-env
+$ virtualenv workspace
 
-6. A new folder lms-env will be created in the current directory.  
-* __On Windows activate the environment using:__   
+6. A new folder workspace will be created in the current directory.  
+* __On Windows activate the environment using:   
 ```
-$ lms-env\Scripts\activate
-```
-
-* __On linux and Mac OS activate the environment using:__   
-```
-$ source lms-env/bin/activate  
+$ workspace\Scripts\activate
 ```
 
-You should see the name __lms-env__ in brackets on your terminal line eg    
+* __On linux and Mac OS activate the environment using:  
 ```
-$(lms-env)user@laptop:~$
+$ source workspace/bin/activate  
+```
+
+You should see the name __workspace__ in brackets on your terminal line eg    
+```
+$(workspace)user@PC:~$
 ```
 
 6. Install the project dependencies:  
@@ -70,11 +70,11 @@ $ python manage.py runserver
 
 ```
 ## TECHNOLOGIES USED
-Python -- 3.8 and above
-pip -- 22.0 and above
-Sqlite -- 3.9 and above
+Python -- 3.8 
+pip -- 22.0 
+Sqlite -- 3.9 
 Django -- 4.0
-Bootstrap -- 4.0
+Bootstrap -- 5.0
 
 ## USAGE
 This should be used by a student to access available books and librarian to post the available and unavailable books.
