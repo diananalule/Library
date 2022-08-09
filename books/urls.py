@@ -8,5 +8,9 @@ urlpatterns = [
     path('searchbooks', views.searchBooks, name="searchbooks"),
     path('addbook', views.addbookurl, name="addbook"),
     path('addBook', views.addBook, name="addBook"),
-    path('borrowbook/<str:book_id>/', views.borrowBook, name="borrowbook")
+    path('borrowbook/<str:book_id>/', views.borrowBook, name="borrowbook"),
+    path('deletebook/<str:book_id>/', views.deleteBook, name="deletebook"),
+    path('returnbook/<str:book_id>/', views.returnBook, name="returnbook"),
+    path('notifications', views.notifications, name='notifications'),
+
 ]

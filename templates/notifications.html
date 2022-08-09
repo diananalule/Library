@@ -1,0 +1,30 @@
+{% extends 'main.html'%} {% block content %}
+<div class="d-flex flex-row justify-content-evenly mt-5">
+    <div class="card" style="width: 20rem;">
+          {% if user.role == "Student" %}
+          <div class="card-header">
+            <h3 class="text-center">Fines</h3>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+                <h2 class="text-danger"><i class="bi bi-coin"></i></h2>
+            </div>
+            <div class="d-flex justify-content-center">
+                <h2 class="text-danger">{{fine}} UGX</h2>
+            </div>
+            {% else %}
+            <div class="card-header">
+                <h3 class="text-center">Total Fines</h3>
+              </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-center">
+                    <h2 class="text-danger"><i class="bi bi-coin"></i></h2>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h2 class="text-danger">{{totalfine}} UGX</h2>
+                </div>
+            {% endif %}
+          </div>
+    </div>
+</div>
+{% endblock %}

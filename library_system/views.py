@@ -98,3 +98,4 @@ def profileView(request):
 
 def homeView(request):
     return render(request, "home_page.html")
+

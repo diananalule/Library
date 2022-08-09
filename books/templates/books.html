@@ -12,9 +12,11 @@
             </div>
             {% endif %}
             {% if user.role == "Student" %}
-            <form class="d-flex justify-content-end"  method="GET" action="{% url 'searchbooks' %}">
-                <input class="form-control me-2 w-100" style="display: flex; justify-content: flex-end" type="search" placeholder="Search" name="srch" aria-label="Search book">
+            <form class=""  method="GET" action="{% url 'searchbooks' %}">
+              <div style="display: flex; justify-content: center">
+                <input class="form-control me-2 w-100"  type="search" placeholder="Search book title" name="srch" aria-label="Search book">
                 <button class="btn btn-outline-success" type="submit">Search</button>
+              </div>
             </form>
             {% endif %}
         </div>
@@ -42,7 +44,11 @@
             <td>{{book.author}}</td>
             <td>{{book.genre}}</td>
             <td>{{book.status}}</td>
-            <td></td>
+            <td>
+              <form class=""  method="GET" action="{% url 'deletebook' book.id %}">
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
+            </form>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
