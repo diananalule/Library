@@ -114,7 +114,7 @@ def notifications(request):
         returndate = bk.return_date
         time = date(now.year, now.month, now.day) - date(returndate.year, returndate.month, returndate.day)
         print("Time: ",time)
-        if (time.days >=1 and time.days < 10):
+        if (time.days >=3 and time.days < 10):
             totalfine += 5000
         elif (time.days >= 10):
             totalfine += 15000
@@ -123,7 +123,7 @@ def notifications(request):
     if book != None:
         returndate = book.return_date
         time = date(now.year, now.month, now.day) - date(returndate.year, returndate.month, returndate.day)
-        if (time.days >=1 and time.days < 10):
+        if (time.days >=3 and time.days < 10):
             fine = "5,000"
         elif (time.days >= 10):
             fine = "15,000"
