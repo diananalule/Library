@@ -96,7 +96,7 @@ Many thanks to MOSH a tutor of django on youtube.
  It is an open source project.
 
  ## PROJECT STATUS
- The project is in progress.
+ The project is in progress and Subject to changes.
 
  ## CONTACT
  Created by group 20. 
