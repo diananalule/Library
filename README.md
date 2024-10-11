@@ -90,7 +90,7 @@ Many thanks to MOSH a tutor of django on youtube.
  * NAKALANZI VIVIAN
  * NALULE DIANA
  * KATALEMWA JAVIOUS
- * BASIIMA COLLINELIOUS
+ * BASIIMA COLLINELIUS
 
  ## LICENSE
  It is an open source project.
